@@ -2,6 +2,9 @@ import { test } from "@playwright/test";
 import ContactPage from "../pages/contact.page";
 
 test.describe("Contact", () => {
+  test.use({
+    storageState: "notLoggedInState.json",
+  });
   let contactPage: ContactPage;
 
   test.beforeEach(async ({ page }) => {

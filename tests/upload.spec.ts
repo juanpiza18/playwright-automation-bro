@@ -4,6 +4,9 @@ import CartPage from "../pages/cart.page";
 import UploadComponent from "../pages/components/upload.component";
 
 test.describe("Upload File", () => {
+  test.use({
+    storageState: "notLoggedInState.json",
+  });
   let cartPage: CartPage;
   const fileNames = ["logo.jpg", "logo2mb.jpg"];
 
