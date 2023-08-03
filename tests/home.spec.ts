@@ -2,6 +2,9 @@ import { test, expect } from "@playwright/test";
 import HomePage from "../pages/home.page";
 
 test.describe("Home", () => {
+  test.use({
+    storageState: "notLoggedInState.json",
+  });
   let homePage: HomePage;
 
   test.beforeEach(async ({ page }) => {
