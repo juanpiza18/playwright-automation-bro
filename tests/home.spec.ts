@@ -27,6 +27,7 @@ test.describe("Home", () => {
   });
 
   test("Option 2: open about page and verify title", async ({ page }) => {
+    await page.goto("/about");
     await expect(page).toHaveTitle("About – Practice E-Commerce Site");
   });
 

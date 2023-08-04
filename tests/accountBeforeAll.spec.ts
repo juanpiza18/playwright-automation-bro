@@ -15,6 +15,8 @@ test.describe.serial("My Account", () => {
       '//button[@type="submit" and contains(@class, "login__submit")]'
     );
     await submitButton.click();
+    // // eslint-disable-next-line playwright/no-wait-for-timeout
+    // await page.waitForTimeout(5000);
 
     if (await submitButton.isVisible()) {
       await page.locator("#username").fill("practiceuser1");

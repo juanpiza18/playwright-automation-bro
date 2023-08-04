@@ -12,10 +12,26 @@ async function globalSetup() {
   await page.context().storageState({
     path: "notLoggedInState.json",
   });
-  // Perfom login state
+  // Perform Login
   await page.locator("#username").fill("practiceuser1");
   await page.locator("#password").fill("PracticePass1!");
-  await page.getByText("Log in").click();
+  const submitButton = page.locator(
+    '//button[@type="submit" and contains(@class, "login__submit")]'
+  );
+  await submitButton.click();
+  if (await submitButton.isVisible()) {
+    await page.locator("#username").fill("practiceuser1");
+    await page.locator("#password").fill("PracticePass1!");
+    const submitButton = page.locator(
+      '//button[@type="submit" and contains(@class, "login__submit")]'
+    );
+    await submitButton.click();
+  }
+  const logout = page.locator('//a[contains(@href, "logout")]').first();
+  await logout.waitFor({
+    state: "visible",
+    timeout: 30000,
+  });
 
   // Store the Signed state to a new file - save signed-in state "loggedInState.json"
   await page.context().storageState({
