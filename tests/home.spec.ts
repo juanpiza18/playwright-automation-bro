@@ -18,7 +18,9 @@ test.describe("Home", () => {
     // Expect assertion to be true: verify page title.
     // const title = await page.title();
     // expect(title).toBe("Practice E-Commerce Site – Automation Bro");
-    await expect(page).toHaveTitle("Practice E-Commerce Site – Automation Bro");
+    await expect(page).toHaveTitle(
+      "Practice E-Commerce Site – SDET Unicorns – Helping you succeed in Software Quality."
+    );
   });
   test("Open About Page and verify Title", async ({ page }) => {
     const aboutNavButton = page.locator(".menu-item-491").first();
